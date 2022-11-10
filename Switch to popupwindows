@@ -1,0 +1,15 @@
+public void OpenATestRemenderButtonandSwitchToWindowPOPUP() throws InterruptedException {
+		waitforElement(20,test);
+		clickObj(test,"Open Test Reminder");
+		for(String handle:driver.getWindowHandles()) { // window handlers are user for  switch to other window
+			driver.switchTo().window(handle);
+		}
+		String text = driver.getTitle();
+		System.out.println(text);
+		System.out.println("Sample event pop window is dispayed.");
+		
+	
+	}
+  //this is the code for swtch to windowPopup.
+  for(String handle:driver.getWindowHandles()) { // window handlers are user for  switch to other window
+			driver.switchTo().window(handle);
