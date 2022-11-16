@@ -1,0 +1,12 @@
+//System.setProperty("webdriver.chrome.driver", "C:\\I2EWebsiteTest\\Driver\\chromedriver.exe");
+OR...
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver();
+driver.get("url"); OR.....
+
+driver.navigate().to("https://www.browserstack.com/");
+//-----------How to validate by using Assert class..
+String ActualTitle = driver.getTitle();
+String ExpectedTitle = "Most Reliable App & Cross Browser Testing Platform | BrowserStack";
+Assert.assertEquals(ExpectedTitle, ActualTitle);
+}
