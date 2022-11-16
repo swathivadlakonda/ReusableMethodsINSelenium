@@ -1,0 +1,8 @@
+String actualTitle = driver.getTitle();
+			driver.manage().window().maximize();
+			String expectedTitle = "Home Page ~ Salesforce - Developer Edition";
+			if(actualTitle.equalsIgnoreCase(expectedTitle))
+				System.out.println("Home page is logged with correct Username");
+			else
+				System.out.println("home page is not Lunched");
+			
