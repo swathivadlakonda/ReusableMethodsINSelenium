@@ -1,0 +1,66 @@
+@FindBy(xpath="//a[@title=\"Opportunities Tab\"]")
+	WebElement Opptab;
+	
+	@FindBy(id="fcf")
+	WebElement verifyOpp;
+	 ------------------0R------------------
+	//@FindBy(id="fcf")
+//	List<WebElement> ncncnd;
+	
+
+	public void clickOnOpportunities() {
+		clickObj(Opptab,"Opportunities link");
+		System.out.println("Opportunities Home page displayed");
+
+	}
+
+	public void verifyOpportunitesDropdown() {
+		waitforElement(10,verifyOpp);
+
+		clickObj(verifyOpp,"Opportunities link");   /// By using getText, we will get the all dropdown list.
+		String opp = verifyOpp.getText(); 
+		System.out.println(opp);
+		--------------------------OR-------------------------
+		Select select = new Select(verifyOpp);    // By using List , we will get the all the dropdownlist
+		List<WebElement> options = select.getOptions();  
+		for(WebElement we:options)  
+		{  
+		 System.out.println(we.getText());  
+		}  
+		
+   -----------------------------OR--------------------------------- 
+		//Boolean found = false;		// verifying the perticular value, is present or not
+//		Select select1 = new Select(verifyOpp);
+//		List<WebElement> allOptions = select.getOptions();
+//		for(int i=0; i<allOptions.size(); i++) {
+//		    if(allOptions.get(i).equals("Private")) {
+//		        found=true;
+//		        break;
+//		    }
+//		}
+//		if(found) {
+//		    System.out.println("Private");
+//		}
+
+		
+	}
+  
+  -------------------------------OR----------------------------------
+  String[] exp = {"--Title--","Mr","Mrs","Miss","Ms","Dr","Prof"};
+  Select select = new Select(dropdown);  
+   List<WebElement> options = select.getOptions();  
+   for(WebElement we:options)  
+   {  
+    boolean match = false;
+    for (int i=0; i<exp.length(); i++){
+        if (we.getText().equals(exp[i]){
+          match = true;
+        }
+      }
+    Assert.assertTrue(match); //Assert.assertTrue(match, we.getText());
+
+ }  
+	
+	
+
+}
