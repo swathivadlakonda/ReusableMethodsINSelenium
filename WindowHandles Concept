@@ -1,0 +1,19 @@
+WebElement windowWin = driver.findElement(By.xpath("//button[contains(text(),'Window')]"));
+ 		 		windowWin.click();
+ 		 		
+ 		 		String parentWindowWin = driver.getWindowHandle(); // it will indicate the current/working window
+ 				String parentTitleWin = driver.getTitle();
+ 				System.out.println(parentTitleWin);
+ 				
+ 				for(String handle: driver.getWindowHandles()) {   //it will handles two windows, for loop first will go to the parentWindow and second loop it will stay in the child window and it will stay there handle or control
+ 				   driver.switchTo().window(handle);
+ 			   }
+ 			   String title1 = driver.getTitle();
+ 			   System.out.println(title1);
+ 			   driver.findElement(By.name("q")).sendKeys("salesforce");
+ 			   
+ 			   driver.switchTo().window(parentWindowWin);
+  			   String titleparent1 = driver.getTitle();  // for confirmation, are we shifted to parent window or not by testing the title of that window
+ 			   System.out.println(titleparent1);
+ 		           
+     }
