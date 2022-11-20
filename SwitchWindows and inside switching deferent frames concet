@@ -1,0 +1,29 @@
+public void switchtoTheAccountNamewindoow() {
+		clickObj(accountName,"AccountName");
+		
+		String parentTitle = driver.getTitle(); //current window title
+		System.out.println(parentTitle);
+		
+		//Switch to other window
+		Set<String> getAllWindows = driver.getWindowHandles();
+		String[] getwindow = getAllWindows.toArray(new String[getAllWindows.size()]);
+		driver.switchTo().window(getwindow[1]);
+		System.out.println(driver.getTitle());
+		
+		driver.switchTo().frame(frame1);  //Switching first frame
+		 
+     waitforElement(10,search );
+  	    	search.sendKeys("*s");
+  			clickObj(go,"Go");
+  		
+      driver.switchTo().defaultContent(); // driver switch out from the frame.
+  	
+    driver.switchTo().frame(frame2);  //Switching second frame
+  		
+      clickObj(selectAccountName,"AccountName");
+  			System.out.println("Test Pass: AccountName is Displayed in AccountName field");
+  		
+      driver.switchTo().window(getwindow[0]);  // go back to the parent window..
+
+
+	}
