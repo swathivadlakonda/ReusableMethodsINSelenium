@@ -5,8 +5,34 @@ WebDriver driver = new ChromeDriver();
 driver.get("url"); OR.....
 
 driver.navigate().to("https://www.browserstack.com/");
-//-----------How to validate by using Assert class..
+//-----------How to validate by using Assert class.. HArd Assert
 String ActualTitle = driver.getTitle();
 String ExpectedTitle = "Most Reliable App & Cross Browser Testing Platform | BrowserStack";
 Assert.assertEquals(ExpectedTitle, ActualTitle);
+}
+
+Soft Assert concept....
+
+package com.tests;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+public class BrowserStackTutorials {
+@Test
+public void softAssert() {
+System.setProperty("webdriver.chrome.driver", "C:\\I2EWebsiteTest\\Driver\\chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+SoftAssert softAssert = new SoftAssert();
+driver.navigate().to("https://www.browserstack.com/");
+String getActualTitle = driver.getTitle();
+Boolean verifyTitle = driver.getTitle().equalsIgnoreCase("Most Reliable App & Cross Browser Testing Platform | BrowserStack");
+softAssert.assertEquals(getActualTitle, "Most Reliable App & Cross Browser Testing Platform | BrowserStack");
+softAssert.assertNotEquals(getActualTitle, "Most Reliable App & Cross Browser Testing Platform | BrowserStack");
+softAssert.assertNull(verifyTitle);
+softAssert.assertNotNull(verifyTitle);
+softAssert.assertTrue("BrowserStack".equals("Browserstack"), "First soft assert failed");
+softAssert.assertFalse("BrowserStack".equals("BrowserStack"), "Second soft assert failed");
+softAssert.assertAll(); 
+}
 }
