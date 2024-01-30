@@ -8,4 +8,48 @@ action.contextClick(webElement).perform();
   WebElement drag = driver.findElement(By.id("draggable")); 
   action.dragAndDropBy(drag,150,50).build().perform();
 
- //perform doubleclick action
+
+What is Action Class in Selenium?
+Actions class is an ability provided by Selenium for handling keyboard and mouse events. In Selenium WebDriver, handling these events includes operations such as drag and drop in Selenium, clicking on multiple elements with the control key, among others. These operations are performed using the advanced user interactions API. It mainly consists of Actions that are needed while performing these operations.
+
+Action class is defined and invoked using the following syntax:
+//click action...
+Actions action = new Actions(driver);
+action.moveToElement(element).click().perform();
+
+//Perform Mouse Hover Action on the Web Element....
+Actions action = new Actions(driver);
+action.moveToElement(WebeleName).build().perform();
+
+Methods of Action Class
+Action class is useful mainly for mouse and keyboard actions. In order to perform such actions, Selenium provides various methods.
+
+Mouse Actions in Selenium:...................
+doubleClick(): Performs double click on the element
+action.doubleClick(WebElName).perform();
+
+clickAndHold(): Performs long click on the mouse without releasing it
+// Move the cursor to the position of element C. 
+     actions.moveToElement(titleC); // Call clickAndHold() method to perform click and hold operation. 
+     actions.clickAndHold().perform(); 
+  } 
+}
+
+
+dragAndDrop(): Drags the element from one point and drops to another
+Actions action=new Actions(driver);
+  WebElement drag = driver.findElement(By.id("draggable")); 
+  action.dragAndDropBy(drag,150,50).build().perform();  or
+ action.dragAndDrop(Source, Destination).perform();
+
+moveToElement(): Shifts the mouse pointer to the center of the element
+action.moveToElement(element).click().perform();
+
+contextClick(): Performs right-click on the mouse
+action.contextClick(webElement).perform();
+
+Keyboard Actions in Selenium:.....................
+sendKeys(): Sends a series of keys to the element
+keyUp(): Performs key release
+keyDown(): Performs keypress without release
+
