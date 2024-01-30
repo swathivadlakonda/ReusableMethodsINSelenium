@@ -1,0 +1,11 @@
+//perform rightclick Action...
+Actions action = new Actions(driver);  // Actions is a class and action is an interface
+Using the “ContextClick() method” from the Actions class to perform the Right click. Context Click methods navigate the mouse pointer to the middle of the web Element and then perform the right-click action in that web element.
+action.contextClick(webElement).perform();
+
+ //perform drag and drop Action....
+  Actions action=new Actions(driver);
+  WebElement drag = driver.findElement(By.id("draggable")); 
+  action.dragAndDropBy(drag,150,50).build().perform();
+
+ //perform doubleclick action
